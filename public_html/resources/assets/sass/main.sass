@@ -1,0 +1,58 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600")
+
+// Variables
+@import "variables"
+
+// Bootstrap
+@import "../libs/bootstrap/css/bootstrap.min.css"
+
+// Fontawesome
+@import "../libs/fontawesome/css/all.min.css"
+
+body
+  font-size: 14px
+  font-family: Montserrat,sans-serif
+  margin: 0
+  color: #000
+
+nav
+  &.navbar-dark
+    background: #000
+  .navbar-brand
+    img
+      width: 200px
+      height: auto
+
+.search, .services-city
+  margin: 50px 0
+  border-bottom: 1px solid #cccccc
+
+.services-city
+  select
+    font-size: 2rem
+    border: 0
+    height: 70px !important
+    padding: 0
+    margin-top: -15px
+    margin-left: -80px
+    color: #000
+  img
+    max-width: 100%
+
+.btn-primary
+  background-color: #D30000
+  border-color: #E32F2F
+  &:hover
+    background-color: #E32F2F
+
+.footer
+  height: 150px
+  background: #000
+  color: #fff
+  img
+    max-height: 130px
+    width: auto
+
+@import "media.sass"
