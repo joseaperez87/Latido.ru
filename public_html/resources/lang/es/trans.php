@@ -22,5 +22,13 @@ return [
     'search' => "Buscar",
     'services-city-head' => "Servicios en la ciudad de ",
     'service-name' => "Servicio: Clases de :name (:cant)",
-    'about' => "Sobre nosotros"
+    'about' => "Sobre nosotros",
+    'footer-menu' => [
+        'services' => [
+            'title' => "Servicios",
+            'text' => "Clases de :name",
+        ]
+    ],
+    'home' => "Perfil",
+    'titleProfile' => "Perfil :name"
 ];

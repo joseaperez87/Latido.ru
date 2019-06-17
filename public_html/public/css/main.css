@@ -23,6 +23,15 @@ nav .navbar-brand img {
   height: auto;
 }
 
+nav .language .dropdown-menu {
+  min-width: auto;
+}
+
+nav .language .dropdown-menu img {
+  width: 40px;
+  height: auto;
+}
+
 .search,
 .services-city {
   margin: 50px 0;
@@ -40,7 +49,9 @@ nav .navbar-brand img {
 }
 
 .services-city img {
+  width: auto;
   max-width: 100%;
+  max-height: 250px;
 }
 
 .btn-primary {
@@ -56,10 +67,71 @@ nav .navbar-brand img {
   height: 150px;
   background: #000;
   color: #fff;
+  padding: 20px;
+}
+
+.footer strong {
+  color: #D30000;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer ul li {
+  padding: 5px 10px;
 }
 
 .footer img {
   max-height: 130px;
   width: auto;
+}
+
+a {
+  color: #666;
+}
+
+a:hover {
+  color: #E32F2F;
+}
+
+.left-menu {
+  padding: 0;
+  margin: 0;
+  border-right: 1px solid #000;
+}
+
+.left-menu a {
+  color: #000;
+}
+
+.left-menu li {
+  padding: 10px;
+  line-height: 30px;
+}
+
+.left-menu li:hover {
+  background-color: #E32F2F;
+  color: #000;
+}
+
+.content-home {
+  padding: 20px;
+}
+
+.content-home h1 {
+  margin-bottom: 20px;
+}
+
+.content-home .results-search .res {
+  padding: 10px;
+  border: 1px solid #E32F2F;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 450px) {
+  .services-city select {
+    margin: 0;
+  }
 }
 

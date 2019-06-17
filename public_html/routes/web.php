@@ -15,11 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('lang/{locale}', function ($locale) {
+    Session::put('locale',$locale);
+
+    return redirect()->back();
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
 Auth::routes();
+
+$namespacePrefix = '\\'.config('voyager.controllers.namespace').'\\';
+Route::get('login', ['uses' => $namespacePrefix.'VoyagerAuthController@login',     'as' => 'login']);
+Route::post('login', ['uses' => $namespacePrefix.'VoyagerAuthController@postLogin', 'as' => 'postlogin']);
 
 Route::get('/home', 'HomeController@index')->name('home');

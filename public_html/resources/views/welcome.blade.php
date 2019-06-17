@@ -29,15 +29,15 @@
     </div>
     <div class="services-city">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-12">
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 col-sm-12">
                         <h2> {{ __('trans.services-city-head') }}</h2>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 col-sm-12">
                         <select name="cities" id="cities" class="form-control">
                             <option value="1">Moscú</option>
-                            <option value="1">Sant Petersburgo</option>
+                            <option value="2">Sant Petersburgo</option>
                         </select>
                     </div>
                 </div>
