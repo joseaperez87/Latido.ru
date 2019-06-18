@@ -21,3 +21,11 @@ const app = new Vue({
     el: '#app'
 });
 */
+
+/*var js = document.createElement("script");
+
+js.type = "text/javascript";
+js.src = 'js/script.js';
+
+document.body.appendChild(js);
+*/

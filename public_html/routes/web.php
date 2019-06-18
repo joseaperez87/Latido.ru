@@ -31,4 +31,6 @@ $namespacePrefix = '\\'.config('voyager.controllers.namespace').'\\';
 Route::get('login', ['uses' => $namespacePrefix.'VoyagerAuthController@login',     'as' => 'login']);
 Route::post('login', ['uses' => $namespacePrefix.'VoyagerAuthController@postLogin', 'as' => 'postlogin']);
 
+Route::get('logout', ['uses' => $namespacePrefix.'VoyagerController@logout',  'as' => 'logout']);
+
 Route::get('/home', 'HomeController@index')->name('home');
