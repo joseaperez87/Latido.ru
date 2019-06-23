@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\City;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -30,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/registration/success';
 
     /**
      * Create a new controller instance.
@@ -57,11 +60,45 @@ class RegisterController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showForm($id)
     {
         $data['cities'] = City::where('lang', Lang::getLocale())->get();
-        $data['id'] = $id;
+        $user = ['specialist' => 2, 'client' => 3];
+        $data['id'] = $user[$id];
         return view('auth.register', ['data' => $data]);
+    }
+
+
+    public function validateMail($code){
+        $code = explode("-",Crypt::decryptString($code));
+        $user = User::where('email' , $code[1])->get();
+        if(isset($user->id)){
+            $user->active = 1;
+            $user->save();
+        }
+        return redirect("/login");
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 
     /**
@@ -70,11 +107,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create (array $data)
     {
         $settings = json_encode([]);
         $password = bcrypt($data['password']);
-        $c_code = Crypt::encryptString($data['name']."-".$data['email']."*-*");
+        $c_code = Crypt::encryptString($data['name']."-".$data['email']."-**");
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -89,16 +126,16 @@ class RegisterController extends Controller
             return '=?UTF-8?B?'.Base64_encode($text).'?=';
         }
 
-        if($user->id){
+        /*if($user->id){
             $admin_mail = "info@latido.ru";
             $form_subject = "Latido.ru - ".Lang::get('trans.register');
-            $message = "<p>".Lang::get('mail.welcome')."</p><p><a href='".url("/")."confirm/$c_code'>".url("/")."confirm/$c_code</a></p>";
+            $message = "<p>".Lang::get('mail.welcome')."</p><p><a href='".url("/")."/confirm/$c_code'>".{{ __('mail.confirm') }}."</a></p>";
 
             $headers = "MIME-Version: 1.0" . PHP_EOL .
                 "Content-Type: text/html; charset=utf-8" . PHP_EOL .
                 "From: $admin_mail" . PHP_EOL;
-            mail($admin_mail, adopt($form_subject), $message, $headers );
-        }
+            mail($data['email'], adopt($form_subject), $message, $headers );
+        }*/
         return $user;
     }
 }

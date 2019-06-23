@@ -6,7 +6,6 @@
     @else
         @php $head = "клиентов" @endphp
     @endif
-<div class="container">
     <h1 class="panel-heading">{{ __("trans.register_title", ['name' => $head]) }}</h1>
     <div class="row">
         <div class="col-md-6">
@@ -87,5 +86,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -1,5 +1,6 @@
 let mix = require('laravel-mix');
 
+mix.setPublicPath('public_html/');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -15,10 +16,10 @@ mix.scripts(['resources/assets/libs/jquery/dist/jquery.min.js',
             'resources/assets/libs/bootstrap/js/bootstrap.min.js',
             'https://unpkg.com/popper.js/dist/umd/popper.min.js'
         ],
-        'public/js/script.js'
+        'public_html/js/script.js'
 )
 
    .sass(/*'resources/assets/js/libs/bootstrap/css/bootstrap.min.css',*/
            'resources/assets/sass/main.sass',
-       'public_html/css').
-    js('resources/assets/js/app.js', 'public_html/js')
+       'css').
+    js('resources/assets/js/app.js', 'js')

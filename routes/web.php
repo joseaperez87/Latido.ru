@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('registration/success', function () {
+    return view('auth.success');
+});
+
 Route::get('lang/{locale}', function ($locale) {
     Session::put('locale',$locale);
 
@@ -28,6 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('register/{id}', ['uses' =>'Auth\RegisterController@showForm']);
+Route::get('confirm/{code}', ['uses' =>'Auth\RegisterController@validateMail']);
 
 $namespacePrefix = '\\'.config('voyager.controllers.namespace').'\\';
 Route::get('login', ['uses' => $namespacePrefix.'VoyagerAuthController@login',     'as' => 'login']);

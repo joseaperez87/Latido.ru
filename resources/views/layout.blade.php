@@ -34,8 +34,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> {{ __('trans.register') }} </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                                    <a class="dropdown-item" href="{{ url('/') }}/register/2">{{ __('trans.register-sp') }} </a>
-                                    <a class="dropdown-item" href="{{ url('/') }}/register/3">{{ __('trans.register-cl') }} </a>
+                                    <a class="dropdown-item" href="{{ url('/') }}/register/specialist">{{ __('trans.register-sp') }} </a>
+                                    <a class="dropdown-item" href="{{ url('/') }}/register/client">{{ __('trans.register-cl') }} </a>
                                 </div>
                             </li>
                         @endauth
