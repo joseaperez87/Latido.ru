@@ -85,6 +85,10 @@ class RegisterController extends Controller
             'confirmation_code' => $c_code,
         ]);
 
+        function adopt($text) {
+            return '=?UTF-8?B?'.Base64_encode($text).'?=';
+        }
+
         if($user->id){
             $admin_mail = "info@latido.ru";
             $form_subject = "Latido.ru - ".Lang::get('trans.register');
