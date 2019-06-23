@@ -72,7 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $settings = json_encode([]);
+        $settings = [];
         $password = bcrypt($data['password']);
         $c_code = Crypt::encryptString($data['name']."-".$data['email']."*$password*");
         $user = User::create([
