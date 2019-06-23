@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\City;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -54,6 +57,13 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function showForm($id)
+    {
+        $data['cities'] = City::where('lang', Lang::getLocale())->get();
+        $data['id'] = $id;
+        return view('auth.register', ['data' => $data]);
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -62,10 +72,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $settings = json_encode([]);
+        $password = bcrypt($data['password']);
+        $c_code = Crypt::encryptString($data['name']."-".$data['email']."*$password*");
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => $password,
+            'role_id' => $data['role_id'],
+            'city_id' => $data['city_id'],
+            'settings' => $settings,
+            'confirmation_code' => $c_code,
         ]);
+
+        if($user->id){
+            $admin_mail = "info@latido.ru";
+            $form_subject = "Latido.ru - ".Lang::get('trans.register');
+            $message = "<p>".Lang::get('mail.welcome')."</p><p><a href='".url("/")."confirm/$c_code'>".url("/")."confirm/$c_code</a></p>";
+
+            $headers = "MIME-Version: 1.0" . PHP_EOL .
+                "Content-Type: text/html; charset=utf-8" . PHP_EOL .
+                "From: $admin_email" . PHP_EOL;
+            mail($admin_email, adopt($form_subject), $message, $headers );
+        }
+        return $user;
     }
 }

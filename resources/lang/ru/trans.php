@@ -10,8 +10,9 @@ return [
     'title' => "Добро пожаловать",
     'search-title' => "Выберите Параметры поиска",
     'register' => "Регистрация",
-    'register-sp' => "Регистрация Специалиста",
-    'register-cl' => "Регистрация Клиента",
+    'register_title' => "Регистрация :name",
+    'register-sp' => "Регистрация Специалистов",
+    'register-cl' => "Регистрация Клиентов",
     'select-serv' => "Выберите службу",
     'services' => [
         'select-service' => "Выберите службу",
@@ -26,9 +27,10 @@ return [
     'footer-menu' => [
         'services' => [
             'title' => "Услуги",
-            'text' => "Классы :name",
+            'text' => "Уроки :name",
         ]
     ],
+    'contact' => 'Контакты',
     'home' => "Профиль",
     'titleProfile' => "Профиль :name",
     'filter-requests' => "фильтрация заказов",
@@ -47,4 +49,7 @@ return [
     'logout' => "Выйти",
     'back-main' => "Вернуться на главную страницу",
     'login' => "Войти",
+    'name' => "ФИО",
+    'password' => "Пароль",
+    'conf_password' => "Подтверждение пароля"
 ];

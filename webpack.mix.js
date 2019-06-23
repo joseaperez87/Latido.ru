@@ -20,5 +20,5 @@ mix.scripts(['resources/assets/libs/jquery/dist/jquery.min.js',
 
    .sass(/*'resources/assets/js/libs/bootstrap/css/bootstrap.min.css',*/
            'resources/assets/sass/main.sass',
-       'public/css').
-    js('resources/assets/js/app.js', 'public/js')
+       'public_html/css').
+    js('resources/assets/js/app.js', 'public_html/js')

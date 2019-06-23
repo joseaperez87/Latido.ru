@@ -27,6 +27,8 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
+Route::get('register/{id}', ['uses' =>'Auth\RegisterController@showForm']);
+
 $namespacePrefix = '\\'.config('voyager.controllers.namespace').'\\';
 Route::get('login', ['uses' => $namespacePrefix.'VoyagerAuthController@login',     'as' => 'login']);
 Route::post('login', ['uses' => $namespacePrefix.'VoyagerAuthController@postLogin', 'as' => 'postlogin']);

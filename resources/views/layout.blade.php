@@ -34,8 +34,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> {{ __('trans.register') }} </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('trans.register-sp') }} </a>
-                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('trans.register-cl') }} </a>
+                                    <a class="dropdown-item" href="{{ url('/') }}/register/2">{{ __('trans.register-sp') }} </a>
+                                    <a class="dropdown-item" href="{{ url('/') }}/register/3">{{ __('trans.register-cl') }} </a>
                                 </div>
                             </li>
                         @endauth
@@ -69,15 +69,15 @@
                         </div>
                         <div class="col-lg col-sm-6">
                             <ul><strong>{{ __("trans.footer-menu.services.title") }}</strong>
-                                <li><a href="#">{{ __("trans.footer-menu.services.text", ['name' => "Español"]) }}</a> </li>
-                                <li><a href="#">{{ __("trans.footer-menu.services.text", ['name' => "Baile"]) }}</a></li>
-                                <li><a href="#">{{ __("trans.footer-menu.services.text", ['name' => "Inglés"]) }}</a></li>
+                                <li><a href="#">{{ __("trans.footer-menu.services.text", ['name' => "Испанского языка"]) }}</a> </li>
+                                <li><a href="#">{{ __("trans.footer-menu.services.text", ['name' => "Танцев"]) }}</a></li>
+                                <li><a href="#">{{ __("trans.footer-menu.services.text", ['name' => "Английского языка"]) }}</a></li>
                             </ul>
                         </div>
                         <div class="col-lg col-sm-6">
-                            <ul><strong>Contacto</strong>
+                            <ul><strong>{{ __("trans.contact") }}</strong>
                                 <li><a href="tel:89859111942"><i class="fa fa-phone"></i> +7 (985) 911 1942</a></li>
-                                <li><a href="mailto:latido@yandex.ru"><i class="fa fa-mail-bulk"></i> latido.ru@yandex.ru</a></li>
+                                <li><a href="mailto:info@latido.ru"><i class="fa fa-mail-bulk"></i> info@latido.ru</a></li>
                             </ul>
                         </div>
                     </div>
