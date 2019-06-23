@@ -72,7 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $settings = [];
+        $settings = json_encode([]);
         $password = bcrypt($data['password']);
         $c_code = Crypt::encryptString($data['name']."-".$data['email']."*-*");
         $user = User::create([
@@ -92,8 +92,8 @@ class RegisterController extends Controller
 
             $headers = "MIME-Version: 1.0" . PHP_EOL .
                 "Content-Type: text/html; charset=utf-8" . PHP_EOL .
-                "From: $admin_email" . PHP_EOL;
-            mail($admin_email, adopt($form_subject), $message, $headers );
+                "From: $admin_mail" . PHP_EOL;
+            mail($admin_mail, adopt($form_subject), $message, $headers );
         }
         return $user;
     }
