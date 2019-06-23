@@ -81,7 +81,7 @@ class RegisterController extends Controller
             'password' => $password,
             'role_id' => $data['role_id'],
             'city_id' => $data['city_id'],
-            'settings' => $settings,
+            'user_settings' => $settings,
             'confirmation_code' => $c_code,
         ]);
 
