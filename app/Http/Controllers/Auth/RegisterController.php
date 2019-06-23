@@ -74,7 +74,7 @@ class RegisterController extends Controller
     {
         $settings = [];
         $password = bcrypt($data['password']);
-        $c_code = Crypt::encryptString($data['name']."-".$data['email']."*$password*");
+        $c_code = Crypt::encryptString($data['name']."-".$data['email']."*-*");
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
