@@ -5,23 +5,22 @@
 @section('content')
     <div class="search">
         <h1>{{ __('trans.search-title') }}</h1>
-        <form class="search-specialist" method="post">
+        <form class="search-specialist" method="post" action="order/create">
+            {{ csrf_field() }}
             <div class="row">
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <div class="form-group">
-                            <select class="form-control" id="sel1">
-                                <option value="0">{{ __('trans.services.select-service') }}</option>
-                                <option value="1">{{ __('trans.services.dance-class') }}</option>
-                                <option value="2">{{ __('trans.services.spanish-class') }}</option>
-                                <option value="3">{{ __('trans.services.english-class') }}</option>
-                            </select>
-                        </div>
+                        <select class="form-control" name="service" id="sel1">
+                            <option value="0">{{ __('trans.services.select-service') }}</option>
+                            <option value="1">{{ __('trans.services.dance-class') }}</option>
+                            <option value="2">{{ __('trans.services.spanish-class') }}</option>
+                            <option value="3">{{ __('trans.services.english-class') }}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-1">
                     <div class="form-group">
-                        <button class="btn btn-primary" type="button">{{ __("trans.search") }}</button>
+                        <button class="btn btn-primary" type="submit">{{ __("trans.search") }}</button>
                     </div>
                 </div>
             </div>

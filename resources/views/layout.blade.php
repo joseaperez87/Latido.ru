@@ -86,6 +86,8 @@
         @show
     </footer>
     </body>
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    @section('js')
+        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+    @show
 </html>

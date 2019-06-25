@@ -50,8 +50,8 @@
                             <label for="place"><strong>{{ __('trans.metro') }}</strong></label>
                             <select name="city" id="service" class="form-control">
                                 <option value="0">{{ __('trans.place.any') }}</option>
-                                <option value="1">{{ __('trans.place.client') }}</option>
-                                <option value="2">{{ __('trans.place.specialist') }}</option>
+                                <option value="1">Киевская</option>
+                                <option value="2">Савёловская</option>
                             </select>
                         </div>
                     </div>

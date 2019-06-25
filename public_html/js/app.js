@@ -98,14 +98,11 @@ const app = new Vue({
     el: '#app'
 });
 */
-
-/*var js = document.createElement("script");
-
-js.type = "text/javascript";
-js.src = 'js/script.js';
-
-document.body.appendChild(js);
-*/
+$('.address-map').fadeOut();
+$('input#metro,input#selmap').click(function () {
+  $('.address-metro').fadeToggle();
+  $('.address-map').fadeToggle();
+});
 
 /***/ }),
 /* 2 */
