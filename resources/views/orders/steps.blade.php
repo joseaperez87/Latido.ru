@@ -90,7 +90,13 @@
 
                             </div>
                         </div>
-                        <div class="offset-lg-8 col-lg-4 col-sm-12 text-right">
+                        <div class="col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="place"><strong>{{ __('trans.description') }}</strong></label>
+                                <textarea class="form-control" name="description" rows="5" placeholder="{{ __("trans.service-description") }}"></textarea>
+                            </div>
+                        </div>
+                        <div class="offset-lg-6 col-lg-4 col-sm-12 text-right">
                             <button type="button" class="btn btn-primary">{{ __('trans.send') }}</button>
                         </div>
                     </div>

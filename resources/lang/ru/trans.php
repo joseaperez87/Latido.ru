@@ -65,4 +65,6 @@ return [
     'map' => "Карта",
     'send' => "Отправить",
     'select-service' => "Выберите службу",
+    'service-description' => "Опишите свое обслуживание",
+    'description' => "Описание",
 ];
