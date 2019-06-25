@@ -9,8 +9,12 @@ class OrdersController extends Controller
 {
 
     public function createForm(Request $request){
-        $service = $request->input("service");
+        if($request->has('"service"')){
+            $service = $request->input("service");
 
-        return view("orders/steps");
+            return view("orders/steps");
+        }else{
+            return redirect("/");
+        }
     }
 }

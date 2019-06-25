@@ -35,6 +35,7 @@ Route::get('register/{id}', ['uses' =>'Auth\RegisterController@showForm']);
 Route::get('confirm/{code}', ['uses' =>'Auth\RegisterController@validateMail']);
 
 Route::post('order/create', ['uses' =>'OrdersController@createForm']);
+Route::get('order/create', ['uses' =>'OrdersController@createForm']);
 
 $namespacePrefix = '\\'.config('voyager.controllers.namespace').'\\';
 Route::get('login', ['uses' => $namespacePrefix.'VoyagerAuthController@login',     'as' => 'login']);
