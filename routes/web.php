@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('site/shutdown', function(){
+    return Artisan::call('down');
+});
+
 Route::get('registration/success', function () {
     return view('auth.success');
 });
