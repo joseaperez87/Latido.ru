@@ -11,9 +11,9 @@
 |
 */
 
-if($this->app->environment('production')) {
+/*if($this->app->environment('production')) {
     URL::forceScheme('https');
-}
+}*/
 
 Route::get('/', function () {
     return view('welcome');
